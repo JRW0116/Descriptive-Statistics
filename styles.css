@@ -131,7 +131,8 @@ h2 {
   display: inline-flex;
   flex-direction: column;
   gap: 0.35rem;
-  padding: 1rem 1.25rem;
+  min-width: min(100%, 420px);
+  padding: 1.2rem 1.25rem;
   border-radius: 18px;
   border: 1px dashed rgba(11, 110, 79, 0.34);
   background: rgba(255, 255, 255, 0.6);
@@ -143,6 +144,12 @@ h2 {
   transform: translateY(-2px);
   border-color: rgba(11, 110, 79, 0.7);
   background: rgba(255, 255, 255, 0.9);
+}
+
+.upload-card.is-dragover {
+  transform: translateY(-2px) scale(1.01);
+  border-color: rgba(11, 110, 79, 0.95);
+  background: rgba(217, 244, 234, 0.95);
 }
 
 .upload-title {
@@ -223,6 +230,25 @@ h2 {
   grid-template-columns: 1.35fr 1fr;
   gap: 1.5rem;
   margin-top: 1.5rem;
+}
+
+.chart-panel {
+  margin-top: 1.5rem;
+}
+
+.chart-wrap {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(244, 238, 229, 0.88));
+}
+
+#distributionChart {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .table-wrap {
