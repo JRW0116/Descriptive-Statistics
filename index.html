@@ -19,9 +19,9 @@
         descriptive statistics without sending your data anywhere.
       </p>
       <div class="hero-actions">
-        <label class="upload-card" for="datasetInput">
-          <span class="upload-title">Choose a CSV or TSV file</span>
-          <span class="upload-subtitle">Your dataset stays in the browser</span>
+        <label class="upload-card" id="dropZone" for="datasetInput">
+          <span class="upload-title">Drop a CSV or TSV file here</span>
+          <span class="upload-subtitle">Or click to browse from your device</span>
         </label>
         <input id="datasetInput" type="file" accept=".csv,.tsv,text/csv,text/tab-separated-values">
       </div>
@@ -105,6 +105,21 @@
           </article>
         </div>
       </section>
+    </section>
+
+    <section class="panel chart-panel">
+      <div class="panel-header">
+        <div>
+          <p class="panel-kicker">Chart</p>
+          <h2>Distribution View</h2>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="distributionChart" width="960" height="420" aria-label="Distribution chart for selected numeric column"></canvas>
+      </div>
+      <p id="chartCaption" class="message-box">
+        Upload a dataset and select a numeric column to visualize its distribution.
+      </p>
     </section>
   </main>
 
