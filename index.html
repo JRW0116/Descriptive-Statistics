@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dataset Descriptive Statistics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <p class="eyebrow">Static App for GitHub Pages</p>
+      <h1>Upload a dataset and explore descriptive statistics instantly.</h1>
+      <p class="hero-copy">
+        This browser-based tool reads your file locally, detects numeric columns, and computes
+        descriptive statistics without sending your data anywhere.
+      </p>
+      <div class="hero-actions">
+        <label class="upload-card" for="datasetInput">
+          <span class="upload-title">Choose a CSV or TSV file</span>
+          <span class="upload-subtitle">Your dataset stays in the browser</span>
+        </label>
+        <input id="datasetInput" type="file" accept=".csv,.tsv,text/csv,text/tab-separated-values">
+      </div>
+    </section>
+
+    <section class="panel summary-panel">
+      <div class="panel-header">
+        <div>
+          <p class="panel-kicker">Dataset</p>
+          <h2>Overview</h2>
+        </div>
+        <span id="datasetStatus" class="status-pill">Waiting for file</span>
+      </div>
+      <div id="overviewGrid" class="overview-grid empty-state">
+        <article class="metric-card">
+          <span class="metric-label">Rows</span>
+          <strong class="metric-value">0</strong>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Columns</span>
+          <strong class="metric-value">0</strong>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Numeric fields</span>
+          <strong class="metric-value">0</strong>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Missing values</span>
+          <strong class="metric-value">0</strong>
+        </article>
+      </div>
+      <p id="messageBox" class="message-box">
+        Upload a dataset to see overall metrics, per-column summaries, and detailed descriptive statistics.
+      </p>
+    </section>
+
+    <section class="content-grid">
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Columns</p>
+            <h2>Numeric Summary</h2>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table id="summaryTable">
+            <thead>
+              <tr>
+                <th>Column</th>
+                <th>Count</th>
+                <th>Mean</th>
+                <th>Median</th>
+                <th>Std. Dev.</th>
+                <th>Min</th>
+                <th>Max</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="7" class="placeholder-cell">Numeric column summaries will appear here.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Details</p>
+            <h2>Selected Column</h2>
+          </div>
+          <select id="columnSelect" disabled>
+            <option>Select a numeric column</option>
+          </select>
+        </div>
+        <div id="detailStats" class="detail-stats empty-detail">
+          <article class="detail-card">
+            <span class="detail-label">No column selected</span>
+            <strong class="detail-value">-</strong>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
