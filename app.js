@@ -9,6 +9,8 @@ const detailStats = document.getElementById("detailStats");
 const distributionChart = document.getElementById("distributionChart");
 const chartCaption = document.getElementById("chartCaption");
 const chartContext = distributionChart.getContext("2d");
+const completeAnalysisButton = document.getElementById("completeAnalysis");
+const completionStatus = document.getElementById("completionStatus");
 
 let currentNumericSummaries = [];
 let currentParsedDataset = null;
@@ -22,6 +24,10 @@ columnSelect.addEventListener("change", handleColumnSelection);
   dropZone.addEventListener(eventName, handleDragLeave);
 });
 dropZone.addEventListener("drop", handleFileDrop);
+completeAnalysisButton.addEventListener("click", () => {
+  completionStatus.textContent = "Analysis completed.";
+  completeAnalysisButton.textContent = "Completed";
+});
 
 drawEmptyChart("Upload a dataset to see a chart here.");
 
@@ -89,12 +95,18 @@ async function analyzeFile(file) {
     }
 
     datasetStatus.textContent = `Loaded: ${file.name}`;
+    completeAnalysisButton.disabled = false;
+    completeAnalysisButton.textContent = "Complete Analysis";
+    completionStatus.textContent = "";
     messageBox.textContent = summaries.length > 0
       ? "Select any numeric column to inspect a fuller set of descriptive statistics."
       : "The file loaded successfully, but no numeric columns were found for descriptive statistics.";
   } catch (error) {
     currentParsedDataset = null;
     currentNumericSummaries = [];
+    completeAnalysisButton.disabled = true;
+    completeAnalysisButton.textContent = "Complete Analysis";
+    completionStatus.textContent = "";
     datasetStatus.textContent = "Could not analyze";
     messageBox.textContent = error.message;
     renderOverview({
