@@ -344,3 +344,37 @@ tbody tr:hover {
 .complete-button:disabled { cursor:not-allowed; opacity:.45; }
 .completion-status { min-height:1.4em; margin:.75rem 0 0; color:var(--muted); font-weight:600; }
 @media (max-width:640px) { .completion-panel { align-items:stretch; flex-direction:column; } .completion-actions { width:100%; } }
+
+
+/* Quality In Practice — shared application identity */
+:root{
+  --qip-mint:#94e8a5;--qip-black:#000;--qip-white:#fff;--qip-gray:#5a5a5a;--qip-line:#d9d9d2;--qip-paper:#f7f7f2;
+  --accent:#94e8a5;--primary:#000;--brand:#94e8a5;--ink:#000;--text:#000;--muted:#5a5a5a;--page:#f7f7f2;--bg:#f7f7f2;--panel:#fff;--surface:#fff;--line:#d9d9d2;--border:#d9d9d2;
+}
+html{background:var(--qip-black)}
+body{background:var(--qip-paper);color:var(--qip-black);font-family:Inter,"Avenir Next",Manrope,"Helvetica Neue",Arial,sans-serif;font-weight:400}
+h1,h2,h3{letter-spacing:-.035em;font-weight:400}
+h1{font-weight:300}
+header,.app-header,.site-header,.hero{border-radius:0}
+.app-header,.site-header,body>header,.hero{border-bottom:8px solid var(--qip-mint)}
+.eyebrow,.kicker,.overline,.section-label{color:#267f39;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+button,.button,.btn,[type="button"],[type="submit"]{border-radius:0;font-weight:500;box-shadow:none}
+button:not(.secondary):not(.ghost):not(.delete-control):not(.remove):not(.icon-button),.button.primary,.btn-primary,[type="submit"]{background:var(--qip-black);border-color:var(--qip-black);color:var(--qip-white)}
+button:not(.secondary):not(.ghost):not(.delete-control):not(.remove):not(.icon-button):hover,.button.primary:hover,.btn-primary:hover,[type="submit"]:hover{background:var(--qip-mint);border-color:var(--qip-black);color:var(--qip-black)}
+button.secondary,.button.secondary,.btn-secondary,.ghost{background:var(--qip-white);border-color:var(--qip-black);color:var(--qip-black)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--qip-mint);outline-offset:2px}
+input,select,textarea{border-radius:0}
+.card,.panel,.section-card,.analysis-card,.result-card,.metric-card,.summary-card,.project-panel,.workspace,.worksheet,.worksheet-wrap,.toolbar{border-radius:0;box-shadow:none}
+.card,.panel,.section-card,.analysis-card,.result-card,.project-panel,.workspace,.worksheet,.worksheet-wrap{border-color:var(--qip-line)}
+.card:first-child,.panel:first-child,.analysis-card:first-child,.result-card:first-child,.project-panel{border-top:5px solid var(--qip-mint)}
+table{border-color:var(--qip-line)}
+thead th{background:var(--qip-black);color:var(--qip-white);font-weight:500}
+tbody th,tbody td{border-color:var(--qip-line)}
+.progress,.progress-bar,.meter,.score-bar{border-radius:0}
+.progress>*,.progress-bar>*,.meter>*,.score-bar>*{background:var(--qip-mint)}
+.badge,.pill,.tag,.chip{border-radius:0}
+nav a.active,.tabs button.active,.tab.active{border-color:var(--qip-mint)}
+.summary,.metrics,.stats{gap:12px}
+.summary>*,.metrics>*,.stats>*{border-radius:0;box-shadow:none;border-top:4px solid var(--qip-mint)}
+footer,.site-footer{border-top:1px solid var(--qip-black)}
+@media(max-width:700px){.app-header,.site-header,body>header,.hero{border-bottom-width:6px}}
